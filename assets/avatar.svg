@@ -1,0 +1,101 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" shape-rendering="crispEdges" role="img" aria-label="Cute pixel art avatar of a smiling Black woman with braids and glasses">
+  <!-- backdrop -->
+  <rect width="32" height="32" fill="#12121e"/>
+  <rect x="2" y="2" width="28" height="28" fill="#0a0a12"/>
+
+  <!-- braids (drawn first so face/hoodie sit on top) -->
+  <rect x="3" y="11" width="2" height="14" fill="#1c1210"/>
+  <rect x="3" y="15" width="2" height="1" fill="#2e1f1a"/>
+  <rect x="3" y="24" width="2" height="2" fill="#ffb000"/>
+
+  <rect x="5" y="9" width="3" height="18" fill="#1c1210"/>
+  <rect x="5" y="11" width="3" height="1" fill="#2e1f1a"/>
+  <rect x="5" y="15" width="3" height="1" fill="#2e1f1a"/>
+  <rect x="5" y="19" width="3" height="1" fill="#2e1f1a"/>
+  <rect x="5" y="23" width="3" height="1" fill="#2e1f1a"/>
+  <rect x="5" y="27" width="3" height="2" fill="#ffb000"/>
+
+  <rect x="24" y="9" width="3" height="18" fill="#1c1210"/>
+  <rect x="24" y="11" width="3" height="1" fill="#2e1f1a"/>
+  <rect x="24" y="15" width="3" height="1" fill="#2e1f1a"/>
+  <rect x="24" y="19" width="3" height="1" fill="#2e1f1a"/>
+  <rect x="24" y="23" width="3" height="1" fill="#2e1f1a"/>
+  <rect x="24" y="27" width="3" height="2" fill="#ffb000"/>
+
+  <rect x="27" y="11" width="2" height="14" fill="#1c1210"/>
+  <rect x="27" y="15" width="2" height="1" fill="#2e1f1a"/>
+  <rect x="27" y="24" width="2" height="2" fill="#ffb000"/>
+
+  <!-- neck -->
+  <rect x="13" y="19" width="6" height="4" fill="#6e4630"/>
+
+  <!-- hoodie / shoulders -->
+  <rect x="6" y="23" width="20" height="6" fill="#39ff14"/>
+  <rect x="6" y="23" width="20" height="2" fill="#5dff3d"/>
+  <rect x="14" y="23" width="4" height="3" fill="#0a0a12"/>
+
+  <!-- hair cap -->
+  <rect x="12" y="4" width="8" height="2" fill="#1c1210"/>
+  <rect x="10" y="6" width="12" height="2" fill="#1c1210"/>
+  <rect x="8" y="8" width="16" height="2" fill="#1c1210"/>
+
+  <!-- hair bow -->
+  <rect x="13" y="3" width="2" height="2" fill="#ff2fe0"/>
+  <rect x="17" y="3" width="2" height="2" fill="#ff2fe0"/>
+  <rect x="15" y="3" width="2" height="2" fill="#ff8bf0"/>
+
+  <!-- ears -->
+  <rect x="8" y="13" width="1" height="3" fill="#6e4630"/>
+  <rect x="23" y="13" width="1" height="3" fill="#6e4630"/>
+
+  <!-- gold hoop earrings -->
+  <rect x="8" y="16" width="2" height="2" fill="#ffb000"/>
+  <rect x="8" y="17" width="2" height="1" fill="#0a0a12"/>
+  <rect x="22" y="16" width="2" height="2" fill="#ffb000"/>
+  <rect x="22" y="17" width="2" height="1" fill="#0a0a12"/>
+
+  <!-- face -->
+  <rect x="9" y="10" width="14" height="9" fill="#8a5a3c"/>
+  <rect x="11" y="19" width="10" height="1" fill="#8a5a3c"/>
+  <rect x="12" y="20" width="8" height="1" fill="#6e4630"/>
+
+  <!-- eyebrows -->
+  <rect x="11" y="11" width="3" height="1" fill="#1c1210"/>
+  <rect x="18" y="11" width="3" height="1" fill="#1c1210"/>
+
+  <!-- glasses -->
+  <rect x="10" y="12" width="4" height="1" fill="#00e5ff"/>
+  <rect x="18" y="12" width="4" height="1" fill="#00e5ff"/>
+  <rect x="14" y="12" width="4" height="1" fill="#00e5ff"/>
+  <rect x="10" y="13" width="1" height="2" fill="#00e5ff"/>
+  <rect x="13" y="13" width="1" height="2" fill="#00e5ff"/>
+  <rect x="18" y="13" width="1" height="2" fill="#00e5ff"/>
+  <rect x="21" y="13" width="1" height="2" fill="#00e5ff"/>
+  <rect x="11" y="13" width="2" height="2" fill="#0a0a12"/>
+  <rect x="19" y="13" width="2" height="2" fill="#0a0a12"/>
+  <rect x="11" y="13" width="1" height="1" fill="#1c1210"/>
+  <rect x="12" y="13" width="1" height="1" fill="#ffffff"/>
+  <rect x="19" y="13" width="1" height="1" fill="#1c1210"/>
+  <rect x="20" y="13" width="1" height="1" fill="#ffffff"/>
+  <rect x="10" y="15" width="4" height="1" fill="#00e5ff"/>
+  <rect x="18" y="15" width="4" height="1" fill="#00e5ff"/>
+
+  <!-- eyelashes -->
+  <rect x="9" y="13" width="1" height="1" fill="#1c1210"/>
+  <rect x="22" y="13" width="1" height="1" fill="#1c1210"/>
+
+  <!-- blush -->
+  <rect x="10" y="16" width="1" height="1" fill="#ff8ba7"/>
+  <rect x="21" y="16" width="1" height="1" fill="#ff8ba7"/>
+
+  <!-- nose -->
+  <rect x="15" y="16" width="2" height="1" fill="#6e4630"/>
+
+  <!-- big smile -->
+  <rect x="12" y="18" width="8" height="1" fill="#8a3f52"/>
+  <rect x="13" y="19" width="6" height="1" fill="#ffffff"/>
+  <rect x="14" y="20" width="4" height="1" fill="#c96b82"/>
+
+  <!-- top scanline flourish -->
+  <rect x="2" y="2" width="28" height="1" fill="#39ff14" opacity="0.25"/>
+</svg>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CHIDINMA.EXE // Player Profile</title>
+<meta name="description" content="Chidinma's project portfolio — a retro arcade project-select for robotics, ML, and software builds.">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=VT323&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="crt-overlay" aria-hidden="true"></div>
+<div class="scanline" aria-hidden="true"></div>
+
+<div id="boot-screen">
+  <pre id="boot-text"></pre>
+</div>
+
+<div id="app" class="hidden">
+
+  <header class="site-header">
+    <div class="header-inner">
+      <a href="#top" class="logo">CHIDINMA<span class="blink-cursor">_</span></a>
+      <nav class="main-nav">
+        <a href="#projects">PROJECTS</a>
+        <a href="#skills">SKILLS</a>
+        <a href="#about">ABOUT</a>
+        <a href="#contact">CONTINUE?</a>
+      </nav>
+      <div class="coin-counter" title="Page visits this session">
+        <span class="coin-icon">◆</span> <span id="coin-count">01</span>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO / TITLE SCREEN -->
+    <section id="top" class="hero">
+      <div class="hero-grid" aria-hidden="true"></div>
+      <div class="hero-content">
+        <div class="avatar-frame">
+          <img src="assets/avatar.svg" alt="Pixel art avatar of Chidinma" class="avatar-img">
+        </div>
+        <p class="eyebrow">// ROBOTICS + ML ENGINEER</p>
+        <h1 class="glitch" data-text="PLAYER ONE: CHIDINMA">PLAYER ONE: CHIDINMA</h1>
+        <p class="hero-sub">
+          Building sample-based controllers, estimators, and the occasional AI companion.
+          Pick a project below to see what shipped, what's mid-run, and what's archived.
+        </p>
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">PRESS START</a>
+          <a href="https://github.com/chidinmaaa" class="btn btn-ghost" target="_blank" rel="noopener">GITHUB &#8599;</a>
+        </div>
+      </div>
+      <div class="insert-coin">INSERT COIN TO CONTINUE</div>
+    </section>
+
+    <!-- SKILLS / CHARACTER SHEET -->
+    <section id="skills" class="stats-section">
+      <h2 class="section-title">&#9632; CHARACTER SKILLS</h2>
+      <div class="stats-grid">
+        <div class="stat-row">
+          <span class="stat-label">CONTROLS &amp; MPC</span>
+          <div class="stat-bar"><div class="stat-fill" style="--pct:90%"></div></div>
+          <span class="stat-value">90</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">ESTIMATION</span>
+          <div class="stat-bar"><div class="stat-fill" style="--pct:85%"></div></div>
+          <span class="stat-value">85</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">MACHINE LEARNING</span>
+          <div class="stat-bar"><div class="stat-fill" style="--pct:80%"></div></div>
+          <span class="stat-value">80</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">SOFTWARE ENGINEERING</span>
+          <div class="stat-bar"><div class="stat-fill" style="--pct:88%"></div></div>
+          <span class="stat-value">88</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROJECT SELECT -->
+    <section id="projects" class="levels-section">
+      <h2 class="section-title">&#9632; PROJECT SELECT</h2>
+      <p class="section-sub">Choose a project to view full details, demos, and links.</p>
+
+      <div class="filter-bar" role="group" aria-label="Filter projects by status">
+        <button class="filter-btn active" data-filter="all">ALL</button>
+        <button class="filter-btn" data-filter="cleared">CLEARED</button>
+        <button class="filter-btn" data-filter="in-progress">IN PROGRESS</button>
+        <button class="filter-btn" data-filter="archived">ARCHIVED</button>
+      </div>
+
+      <div id="level-grid" class="level-grid"></div>
+    </section>
+
+    <!-- ABOUT -->
+    <section id="about" class="about-section">
+      <h2 class="section-title">&#9632; ABOUT PLAYER</h2>
+      <div class="about-card">
+        <p>
+          I work at the intersection of robotics, control, and machine learning — mostly
+          sample-based methods like MPPI, state estimation, and the software that holds it
+          all together. This site is my project-select screen: a running log of what I've
+          built, what's currently in the oven, and what's been archived after teaching me
+          something useful.
+        </p>
+        <p>
+          Off the clock: still a sucker for graph paper, pixel art, and anything with a
+          scanline.
+        </p>
+      </div>
+    </section>
+  </main>
+
+  <!-- CONTACT / FOOTER -->
+  <footer id="contact" class="site-footer">
+    <div class="game-over-panel">
+      <h2 class="game-over-title">CONTINUE?</h2>
+      <div class="footer-links">
+        <a href="https://github.com/chidinmaaa" target="_blank" rel="noopener">GITHUB</a>
+        <a href="mailto:abbyez@icloud.com">EMAIL</a>
+      </div>
+      <p class="footer-meta">&copy; <span id="year"></span> CHIDINMA &mdash; ALL RIGHTS RESERVED &mdash; NO CONTINUES LEFT</p>
+    </div>
+  </footer>
+</div>
+
+<script src="projects.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

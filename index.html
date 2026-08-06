@@ -28,6 +28,7 @@
       <nav class="main-nav">
         <a href="#projects">PROJECTS</a>
         <a href="#skills">SKILLS</a>
+        <a href="#experience">EXPERIENCE</a>
         <a href="#about">ABOUT</a>
         <a href="#contact">CONTINUE?</a>
       </nav>
@@ -45,11 +46,13 @@
         <div class="avatar-frame">
           <img src="assets/avatar.svg" alt="Pixel art avatar of Chidinma" class="avatar-img">
         </div>
-        <p class="eyebrow">// ROBOTICS + ML ENGINEER</p>
+        <p class="eyebrow">// SOFTWARE ENGINEER + ROBOTICS/ML RESEARCHER</p>
         <h1 class="glitch" data-text="PLAYER ONE: CHIDINMA">PLAYER ONE: CHIDINMA</h1>
         <p class="hero-sub">
-          Building sample-based controllers, estimators, and the occasional AI companion.
-          Pick a project below to see what shipped, what's mid-run, and what's archived.
+          Software Development Engineer who spent a former life on sample-based robot
+          control. I've shipped production systems at Amazon, published research on safe
+          MPPI control, and built more hackathon prototypes than I can count. Pick a
+          category below to see what shipped, what's mid-run, and what's archived.
         </p>
         <div class="hero-actions">
           <a href="#projects" class="btn btn-primary">PRESS START</a>
@@ -59,30 +62,112 @@
       <div class="insert-coin">INSERT COIN TO CONTINUE</div>
     </section>
 
+    <!-- ACHIEVEMENTS UNLOCKED -->
+    <section class="achievements-section">
+      <div class="achievement-badge">
+        <span class="achievement-icon">&#127942;</span>
+        <span class="achievement-text">2x HACKATHON WINNER</span>
+      </div>
+      <div class="achievement-badge">
+        <span class="achievement-icon">&#128220;</span>
+        <span class="achievement-text">PUBLISHED @ ECAI 2025</span>
+      </div>
+      <div class="achievement-badge">
+        <span class="achievement-icon">&#127891;</span>
+        <span class="achievement-text">MEng 2:1, UCL</span>
+      </div>
+      <div class="achievement-badge">
+        <span class="achievement-icon">&#128640;</span>
+        <span class="achievement-text">SHIPPED @ AMAZON</span>
+      </div>
+    </section>
+
     <!-- SKILLS / CHARACTER SHEET -->
     <section id="skills" class="stats-section">
       <h2 class="section-title">&#9632; CHARACTER SKILLS</h2>
       <div class="stats-grid">
         <div class="stat-row">
-          <span class="stat-label">CONTROLS &amp; MPC</span>
+          <span class="stat-label">CLOUD &amp; DISTRIBUTED SYSTEMS</span>
           <div class="stat-bar"><div class="stat-fill" style="--pct:90%"></div></div>
           <span class="stat-value">90</span>
         </div>
         <div class="stat-row">
-          <span class="stat-label">ESTIMATION</span>
+          <span class="stat-label">CONTROLS &amp; MPC</span>
+          <div class="stat-bar"><div class="stat-fill" style="--pct:92%"></div></div>
+          <span class="stat-value">92</span>
+        </div>
+        <div class="stat-row">
+          <span class="stat-label">GENERATIVE AI</span>
           <div class="stat-bar"><div class="stat-fill" style="--pct:85%"></div></div>
           <span class="stat-value">85</span>
         </div>
         <div class="stat-row">
-          <span class="stat-label">MACHINE LEARNING</span>
-          <div class="stat-bar"><div class="stat-fill" style="--pct:80%"></div></div>
-          <span class="stat-value">80</span>
-        </div>
-        <div class="stat-row">
           <span class="stat-label">SOFTWARE ENGINEERING</span>
-          <div class="stat-bar"><div class="stat-fill" style="--pct:88%"></div></div>
-          <span class="stat-value">88</span>
+          <div class="stat-bar"><div class="stat-fill" style="--pct:90%"></div></div>
+          <span class="stat-value">90</span>
         </div>
+      </div>
+    </section>
+
+    <!-- EXPERIENCE / QUEST LOG -->
+    <section id="experience" class="experience-section">
+      <h2 class="section-title">&#9632; QUEST LOG</h2>
+      <p class="section-sub">The jobs, in reverse chronological order.</p>
+
+      <div class="quest-log">
+        <article class="quest-entry">
+          <div class="quest-head">
+            <h3 class="quest-role">Software Development Engineer</h3>
+            <span class="quest-date">June 2025 &ndash; Jan 2026</span>
+          </div>
+          <p class="quest-company">Amazon &mdash; Transportation Technology, London</p>
+          <ul class="quest-bullets">
+            <li>Delivered major end-to-end features for a critical product automating 100% of capacity constraints set across Europe, contributing to over $58 million annual entitlement.</li>
+            <li>Led the cross-team migration of major data pipelines between AWS regions with zero downtime, cutting AWS operational costs by 35% (Europe) and 15% (North America).</li>
+            <li>Designed and deployed generative AI infrastructure using agent workflows, boosting team productivity by ~10% and automating technical documentation.</li>
+            <li>Provided 24/7 on-call support across three core products, resolving 40+ critical incidents per week on average.</li>
+          </ul>
+          <div class="level-tags"><span class="level-chip">Java</span><span class="level-chip">Scala</span><span class="level-chip">SQL</span><span class="level-chip">Spark</span><span class="level-chip">AWS</span></div>
+        </article>
+
+        <article class="quest-entry">
+          <div class="quest-head">
+            <h3 class="quest-role">Software Development Engineer Intern</h3>
+            <span class="quest-date">June 2024 &ndash; Sep 2024</span>
+          </div>
+          <p class="quest-company">Amazon &mdash; Fuse Subscriptions, London</p>
+          <ul class="quest-bullets">
+            <li>Designed and delivered Optimus Bedrock, a complete generative-AI personalisation system automating page creation at scale, cutting design time for business teams by ~20%.</li>
+            <li>Built a production-grade web UI in TypeScript/JavaScript for business users to configure personalisation rules and preview AI-generated content in real time.</li>
+          </ul>
+          <div class="level-tags"><span class="level-chip">Java</span><span class="level-chip">TypeScript</span><span class="level-chip">Docker</span><span class="level-chip">AWS CDK</span><span class="level-chip">Bedrock</span></div>
+        </article>
+
+        <article class="quest-entry">
+          <div class="quest-head">
+            <h3 class="quest-role">Research Intern &mdash; Virtual Environments &amp; Computer Graphics</h3>
+            <span class="quest-date">May 2023 &ndash; Sep 2023</span>
+          </div>
+          <p class="quest-company">University College London</p>
+          <ul class="quest-bullets">
+            <li>Developed a C# interface integrating Microsoft's Rocketbox avatar library with the VECG group's social VR platform, Ubiq.</li>
+            <li>Addressed complex networking and animation challenges, building expertise in Unity along the way.</li>
+          </ul>
+          <div class="level-tags"><span class="level-chip">C#</span><span class="level-chip">Unity</span><span class="level-chip">Ubiq</span></div>
+        </article>
+
+        <article class="quest-entry">
+          <div class="quest-head">
+            <h3 class="quest-role">Technology Intern</h3>
+            <span class="quest-date">July 2023 &ndash; Sep 2023</span>
+          </div>
+          <p class="quest-company">Jisc, London</p>
+          <ul class="quest-bullets">
+            <li>Built AI demos in TypeScript for the company's Explore AI platform.</li>
+            <li>Resolved ~50 customer tickets per week supporting OneDesk operations and implemented Azure-based cybersecurity measures.</li>
+          </ul>
+          <div class="level-tags"><span class="level-chip">TypeScript</span><span class="level-chip">Azure</span></div>
+        </article>
       </div>
     </section>
 
@@ -91,14 +176,7 @@
       <h2 class="section-title">&#9632; PROJECT SELECT</h2>
       <p class="section-sub">Choose a project to view full details, demos, and links.</p>
 
-      <div class="filter-bar" role="group" aria-label="Filter projects by status">
-        <button class="filter-btn active" data-filter="all">ALL</button>
-        <button class="filter-btn" data-filter="cleared">CLEARED</button>
-        <button class="filter-btn" data-filter="in-progress">IN PROGRESS</button>
-        <button class="filter-btn" data-filter="archived">ARCHIVED</button>
-      </div>
-
-      <div id="level-grid" class="level-grid"></div>
+      <div id="project-categories"></div>
     </section>
 
     <!-- ABOUT -->
@@ -106,15 +184,18 @@
       <h2 class="section-title">&#9632; ABOUT PLAYER</h2>
       <div class="about-card">
         <p>
-          I work at the intersection of robotics, control, and machine learning — mostly
-          sample-based methods like MPPI, state estimation, and the software that holds it
-          all together. This site is my project-select screen: a running log of what I've
-          built, what's currently in the oven, and what's been archived after teaching me
-          something useful.
+          I'm a software engineer who started out in robotics and machine learning research
+          before moving into production systems. My MEng dissertation on Model Predictive
+          Path Integral (MPPI) control turned into a published paper — presented at ECAI
+          2025 in Bologna — and that same sample-based-control thread is still running as
+          ongoing research on the side.
         </p>
         <p>
-          Off the clock: still a sucker for graph paper, pixel art, and anything with a
-          scanline.
+          Day to day, I build and ship software: I spent most of the last two years at
+          Amazon working on transportation technology and generative AI tooling, after
+          interning there and at Jisc and UCL. Off the clock, I chase hackathons for fun
+          (2 podium finishes so far) and I'm still a sucker for graph paper, pixel art, and
+          anything with a scanline.
         </p>
       </div>
     </section>
@@ -126,6 +207,7 @@
       <h2 class="game-over-title">CONTINUE?</h2>
       <div class="footer-links">
         <a href="https://github.com/chidinmaaa" target="_blank" rel="noopener">GITHUB</a>
+        <a href="https://www.linkedin.com/in/chidinma-ezeji" target="_blank" rel="noopener">LINKEDIN</a>
         <a href="mailto:abbyez@icloud.com">EMAIL</a>
       </div>
       <p class="footer-meta">&copy; <span id="year"></span> CHIDINMA &mdash; ALL RIGHTS RESERVED &mdash; NO CONTINUES LEFT</p>

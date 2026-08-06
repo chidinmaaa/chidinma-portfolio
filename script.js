@@ -60,7 +60,7 @@ function runBootSequence() {
   typeNext();
 }
 
-// ---------- Level grid rendering ----------
+// ---------- Project category rendering ----------
 
 const STATUS_LABEL = {
   cleared: "CLEARED",
@@ -68,16 +68,11 @@ const STATUS_LABEL = {
   archived: "ARCHIVED"
 };
 
-function renderLevels(filter = "all") {
-  const grid = document.getElementById("level-grid");
-  if (!grid || typeof PROJECTS === "undefined") return;
-
-  const items = PROJECTS.filter(p => filter === "all" || p.status === filter);
-
-  grid.innerHTML = items.map(p => `
+function renderCard(p, world) {
+  return `
     <article class="level-card">
       <div class="level-card-head">
-        <span class="level-num">LEVEL ${p.level}</span>
+        <span class="level-num">LEVEL ${world}-${p.level}</span>
         <span class="level-status status-${p.status}">${STATUS_LABEL[p.status]}</span>
       </div>
       <h3 class="level-title">${p.title}</h3>
@@ -87,21 +82,29 @@ function renderLevels(filter = "all") {
       </div>
       <div class="level-card-actions">
         <a class="level-link" href="project.html?p=${encodeURIComponent(p.slug)}">VIEW DETAILS &#8250;</a>
-        <a class="level-source" href="${p.source}" target="_blank" rel="noopener">SOURCE &#8599;</a>
+        ${p.source ? `<a class="level-source" href="${p.source}" target="_blank" rel="noopener">SOURCE &#8599;</a>` : ""}
       </div>
     </article>
-  `).join("");
+  `;
 }
 
-function initFilters() {
-  const buttons = document.querySelectorAll(".filter-btn");
-  buttons.forEach(btn => {
-    btn.addEventListener("click", () => {
-      buttons.forEach(b => b.classList.remove("active"));
-      btn.classList.add("active");
-      renderLevels(btn.dataset.filter);
-    });
-  });
+function renderCategories() {
+  const container = document.getElementById("project-categories");
+  if (!container || typeof PROJECT_CATEGORIES === "undefined") return;
+
+  container.innerHTML = PROJECT_CATEGORIES.map((cat, i) => {
+    const world = i + 1;
+    return `
+    <div class="category-block">
+      <h3 class="category-title">&#9656; WORLD ${world}: ${cat.name}</h3>
+      ${
+        cat.items.length
+          ? `<div class="level-grid">${cat.items.map(p => renderCard(p, world)).join("")}</div>`
+          : `<p class="category-empty">${cat.comingSoon ? "COMING SOON..." : "MORE ON THE WAY."}</p>`
+      }
+    </div>
+  `;
+  }).join("");
 }
 
 // ---------- Coin counter (session visit count, just for flavor) ----------
@@ -134,8 +137,7 @@ function initKonami() {
 
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("year").textContent = new Date().getFullYear();
-  renderLevels();
-  initFilters();
+  renderCategories();
   initCoinCounter();
   initKonami();
   runBootSequence();

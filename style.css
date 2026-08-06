@@ -301,7 +301,7 @@ section { padding: 80px 24px; max-width: 1000px; margin: 0 auto; }
 
 .stat-row {
   display: grid;
-  grid-template-columns: 220px 1fr 48px;
+  grid-template-columns: 260px 1fr 48px;
   align-items: center;
   gap: 16px;
 }
@@ -328,22 +328,61 @@ section { padding: 80px 24px; max-width: 1000px; margin: 0 auto; }
 
 .stat-value { font-family: var(--font-pixel); font-size: 12px; color: var(--amber); text-align: right; }
 
-/* ---------- Level select / project cards ---------- */
+/* ---------- Achievements ---------- */
 
-.filter-bar { display: flex; gap: 10px; margin-bottom: 32px; flex-wrap: wrap; }
-
-.filter-btn {
-  font-family: var(--font-mono);
-  font-size: 17px;
-  letter-spacing: 1px;
-  background: transparent;
-  border: 2px solid var(--text-dim);
-  color: var(--text-dim);
-  padding: 8px 14px;
-  cursor: pointer;
+.achievements-section {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 0 24px 64px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
 }
-.filter-btn:hover { border-color: var(--cyan); color: var(--cyan); }
-.filter-btn.active { border-color: var(--green); color: var(--green); }
+
+.achievement-badge {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  background: var(--panel);
+  border: 2px solid var(--amber);
+  padding: 10px 16px;
+  box-shadow: 4px 4px 0 rgba(255, 176, 0, 0.15);
+}
+
+.achievement-icon { font-size: 20px; }
+
+.achievement-text {
+  font-family: var(--font-pixel);
+  font-size: 10px;
+  color: var(--amber);
+  letter-spacing: 0.5px;
+}
+
+/* ---------- World select / project categories ---------- */
+
+.category-block { margin-bottom: 56px; }
+.category-block:last-child { margin-bottom: 0; }
+
+.category-title {
+  font-family: var(--font-pixel);
+  font-size: 15px;
+  color: var(--cyan);
+  letter-spacing: 1px;
+  margin-bottom: 24px;
+  padding-bottom: 12px;
+  border-bottom: 2px dotted rgba(0, 229, 255, 0.3);
+}
+
+.category-empty {
+  color: var(--text-dim);
+  font-size: 18px;
+  border: 2px dashed var(--text-dim);
+  padding: 20px;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+/* ---------- Level select / project cards ---------- */
 
 .level-grid {
   display: grid;
@@ -425,6 +464,54 @@ section { padding: 80px 24px; max-width: 1000px; margin: 0 auto; }
   letter-spacing: 0.5px;
 }
 .level-source:hover { color: var(--cyan); }
+
+/* ---------- Experience / quest log ---------- */
+
+.quest-log { display: flex; flex-direction: column; gap: 24px; }
+
+.quest-entry {
+  background: var(--panel);
+  border-left: 4px solid var(--cyan);
+  padding: 20px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.quest-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.quest-role {
+  font-family: var(--font-pixel);
+  font-size: 13px;
+  color: var(--text);
+  margin: 0;
+  line-height: 1.6;
+}
+
+.quest-date {
+  font-family: var(--font-pixel);
+  font-size: 10px;
+  color: var(--amber);
+  white-space: nowrap;
+}
+
+.quest-company { color: var(--cyan); font-size: 18px; margin: 0; }
+
+.quest-bullets {
+  color: var(--text-dim);
+  font-size: 18px;
+  margin: 0;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
 
 /* ---------- About ---------- */
 

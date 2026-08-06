@@ -41,7 +41,7 @@ function renderProjectDetail() {
   }
 
   container.innerHTML = `
-    <p class="level-num">${worldName} &mdash; LEVEL ${project.level}</p>
+    <p class="level-num">${worldName}</p>
     <h1 class="project-title">${project.title}</h1>
     <span class="level-status status-${project.status}">${STATUS_LABEL_P[project.status]}</span>
     <div class="level-tags project-detail-tags">

@@ -156,33 +156,28 @@ const PROJECT_CATEGORIES = [
     ]
   },
   {
-    slug: "research",
-    name: "Research",
+    slug: "virtual-reality",
+    name: "Virtual Reality",
     icon: "assets/icons/vr.svg",
     blurb: "Avatars, headsets, and academic research from UCL's VR group.",
     items: [
       {
-        slug: "rocketbox",
+        slug: "avatar-factory",
         level: "1",
-        title: "MoveBox for Microsoft Rocketbox",
+        title: "Avatar Factory",
         status: "cleared",
-        blurb: "UCL research internship — a C# interface integrating Microsoft's Rocketbox avatar library with the VECG group's social VR platform, Ubiq.",
+        blurb: "'Fusion Foundry' — a collaborative VR avatar creation platform built for COMP0113, requiring two players to design a shared avatar together.",
         details: `
-          <p>Research internship with UCL's Virtual Environments &amp; Computer Graphics
-          (VECG) group. Developed a C# interface integrating Microsoft's
-          <a href="https://github.com/microsoft/Microsoft-Rocketbox" target="_blank" rel="noopener">Rocketbox</a>
-          avatar library with the group's social VR platform, Ubiq — enhancing the realism
-          and functionality of the platform.</p>
-          <p>Addressed complex networking and animation challenges as part of MoveBox, the
-          group's motion-capture toolbox for animating Rocketbox avatars, presented at
-          IEEE AIVR.</p>
+          <p>COMP0113 coursework (Group 13): a collaborative avatar creation platform for
+          VR called "Fusion Foundry" — a factory-like setting where players progress
+          through five rooms (HQ, Body Lab, Style Station, Accessory Studio, Voting
+          Station), completing tasks together to design and then inhabit a shared avatar.</p>
+          <p>Implemented a forced-collaboration model throughout, so the experience can only
+          be completed by two or more players working together.</p>
         `,
-        tags: ["C#", "Unity", "Ubiq"],
-        source: "https://github.com/chidinmaaa/expressive_avatar2",
-        links: [
-          { label: "IEEE AIVR PRESENTATION", url: "https://www.youtube.com/watch?v=7CEYObKjsEI" },
-          { label: "RESEARCH PAPER", url: "https://www.microsoft.com/en-us/research/publication/movebox-democratizing-mocap-for-the-microsoft-rocketbox-avatar-library/" }
-        ]
+        tags: ["Unity", "C#", "VR"],
+        source: "https://github.com/chidinmaaa/COMP0113-CW1",
+        links: []
       },
       {
         slug: "virtual-maze",
@@ -202,22 +197,27 @@ const PROJECT_CATEGORIES = [
         links: []
       },
       {
-        slug: "avatar-factory",
+        slug: "rocketbox",
         level: "3",
-        title: "Avatar Factory",
+        title: "MoveBox for Microsoft Rocketbox",
         status: "cleared",
-        blurb: "'Fusion Foundry' — a collaborative VR avatar creation platform built for COMP0113, requiring two players to design a shared avatar together.",
+        blurb: "UCL research internship — a C# interface integrating Microsoft's Rocketbox avatar library with the VECG group's social VR platform, Ubiq.",
         details: `
-          <p>COMP0113 coursework (Group 13): a collaborative avatar creation platform for
-          VR called "Fusion Foundry" — a factory-like setting where players progress
-          through five rooms (HQ, Body Lab, Style Station, Accessory Studio, Voting
-          Station), completing tasks together to design and then inhabit a shared avatar.</p>
-          <p>Implemented a forced-collaboration model throughout, so the experience can only
-          be completed by two or more players working together.</p>
+          <p>Research internship with UCL's Virtual Environments &amp; Computer Graphics
+          (VECG) group. Developed a C# interface integrating Microsoft's
+          <a href="https://github.com/microsoft/Microsoft-Rocketbox" target="_blank" rel="noopener">Rocketbox</a>
+          avatar library with the group's social VR platform, Ubiq — enhancing the realism
+          and functionality of the platform.</p>
+          <p>Addressed complex networking and animation challenges as part of MoveBox, the
+          group's motion-capture toolbox for animating Rocketbox avatars, presented at
+          IEEE AIVR.</p>
         `,
-        tags: ["Unity", "C#", "VR"],
-        source: "https://github.com/chidinmaaa/COMP0113-CW1",
-        links: []
+        tags: ["C#", "Unity", "Ubiq"],
+        source: "https://github.com/chidinmaaa/expressive_avatar2",
+        links: [
+          { label: "IEEE AIVR PRESENTATION", url: "https://www.youtube.com/watch?v=7CEYObKjsEI" },
+          { label: "RESEARCH PAPER", url: "https://www.microsoft.com/en-us/research/publication/movebox-democratizing-mocap-for-the-microsoft-rocketbox-avatar-library/" }
+        ]
       }
     ]
   },

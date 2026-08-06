@@ -308,18 +308,6 @@ section { padding: 80px 24px; max-width: 1000px; margin: 0 auto; }
 .btn-ghost { border-color: var(--cyan); color: var(--cyan); box-shadow: 4px 4px 0 rgba(0, 229, 255, 0.25); }
 .btn-ghost:hover { color: #05130a; background: var(--cyan); }
 
-.insert-coin {
-  position: absolute;
-  bottom: 28px;
-  left: 0; right: 0;
-  text-align: center;
-  font-family: var(--font-pixel);
-  font-size: 11px;
-  color: var(--amber);
-  animation: blink 1.4s step-end infinite;
-  letter-spacing: 1px;
-}
-
 /* ---------- Stats ---------- */
 
 .stats-grid { display: flex; flex-direction: column; gap: 20px; }
@@ -361,6 +349,7 @@ section { padding: 80px 24px; max-width: 1000px; margin: 0 auto; }
   padding: 0 24px 64px;
   display: flex;
   flex-wrap: wrap;
+  justify-content: center;
   gap: 16px;
 }
 
@@ -502,7 +491,7 @@ section { padding: 80px 24px; max-width: 1000px; margin: 0 auto; }
 
 .level-card-head {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: flex-start;
   gap: 12px;
 }

@@ -40,7 +40,6 @@ function renderCard(p) {
   return `
     <article class="level-card">
       <div class="level-card-head">
-        <span class="level-num">LEVEL ${p.level}</span>
         <span class="level-status status-${p.status}">${STATUS_LABEL[p.status]}</span>
       </div>
       <h3 class="level-title">${p.title}</h3>
@@ -109,6 +108,7 @@ function popCoinCounter() {
   // Force reflow so the animation can retrigger on rapid navigations.
   void el.offsetWidth;
   el.classList.add("coin-pop");
+  playCoinSound();
 }
 
 // Call when a world page is visited; only pops for a genuinely new discovery.
@@ -129,6 +129,52 @@ function trackLevelVisit(slug) {
   saveVisitedSet("chidinma-levels-visited", levels);
   updateCoinDisplay();
   if (isNew) popCoinCounter();
+}
+
+// ---------- Sound effects (generated with the Web Audio API, no audio files) ----------
+
+let audioCtx = null;
+
+function getAudioCtx() {
+  const Ctx = window.AudioContext || window.webkitAudioContext;
+  if (!Ctx) return null;
+  if (!audioCtx) audioCtx = new Ctx();
+  if (audioCtx.state === "suspended") audioCtx.resume();
+  return audioCtx;
+}
+
+function playTone(freq, duration, delay, gainValue) {
+  const ctx = getAudioCtx();
+  if (!ctx) return;
+  const osc = ctx.createOscillator();
+  const gain = ctx.createGain();
+  osc.type = "square";
+  osc.frequency.value = freq;
+  osc.connect(gain);
+  gain.connect(ctx.destination);
+  const start = ctx.currentTime + (delay || 0);
+  gain.gain.setValueAtTime(gainValue, start);
+  gain.gain.exponentialRampToValueAtTime(0.0001, start + duration);
+  osc.start(start);
+  osc.stop(start + duration);
+}
+
+function playClickSound() {
+  playTone(720, 0.06, 0, 0.05);
+}
+
+function playCoinSound() {
+  playTone(988, 0.09, 0, 0.07);    // B5
+  playTone(1319, 0.14, 0.08, 0.07); // E6 — classic coin "bling"
+}
+
+const SFX_CLICK_SELECTOR =
+  "a.btn, a.level-link, a.level-source, a.world-card, .footer-links a, .main-nav a, .logo, .back-link";
+
+function initClickSounds() {
+  document.addEventListener("click", (e) => {
+    if (e.target.closest(SFX_CLICK_SELECTOR)) playClickSound();
+  });
 }
 
 // ---------- Konami code easter egg ----------
@@ -153,5 +199,6 @@ document.addEventListener("DOMContentLoaded", () => {
   renderWorldGrid();
   updateCoinDisplay();
   initKonami();
+  initClickSounds();
   runBootSequence();
 });

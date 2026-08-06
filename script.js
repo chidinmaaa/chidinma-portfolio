@@ -17,8 +17,8 @@ function runBootSequence() {
   const bootText = document.getElementById("boot-text");
   const app = document.getElementById("app");
 
-  // Respect users who'd rather skip the animation.
-  const skip = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  // Only index.html has the boot screen — no-op elsewhere.
+  if (!bootScreen || !bootText || !app) return;
 
   function reveal() {
     bootScreen.classList.add("hidden");
@@ -27,10 +27,15 @@ function runBootSequence() {
     window.removeEventListener("click", reveal);
   }
 
-  if (skip) {
+  // Respect users who'd rather skip the animation, and only play it once per visit.
+  const skip = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const alreadyBooted = sessionStorage.getItem("chidinma-booted") === "1";
+
+  if (skip || alreadyBooted) {
     reveal();
     return;
   }
+  sessionStorage.setItem("chidinma-booted", "1");
 
   let lineIndex = 0;
   let charIndex = 0;
@@ -57,15 +62,20 @@ function runBootSequence() {
     }
   }
 
-  typeNext();
+  // Wait for the pixel/mono webfonts to be ready so the loading text doesn't
+  // flash in the browser's fallback font before swapping.
+  if (document.fonts && document.fonts.ready) {
+    document.fonts.ready.then(typeNext);
+  } else {
+    typeNext();
+  }
 }
 
 // ---------- Project category rendering ----------
 
 const STATUS_LABEL = {
   cleared: "CLEARED",
-  "in-progress": "IN PROGRESS",
-  archived: "ARCHIVED"
+  "in-progress": "IN PROGRESS"
 };
 
 function renderCard(p) {
@@ -82,7 +92,9 @@ function renderCard(p) {
       </div>
       <div class="level-card-actions">
         <a class="level-link" href="project.html?p=${encodeURIComponent(p.slug)}">VIEW DETAILS &#8250;</a>
-        ${p.source ? `<a class="level-source" href="${p.source}" target="_blank" rel="noopener">SOURCE &#8599;</a>` : ""}
+        ${p.source
+          ? `<a class="level-source" href="${p.source}" target="_blank" rel="noopener">SOURCE &#8599;</a>`
+          : `<span class="level-source level-source-private">PRIVATE REPO</span>`}
       </div>
     </article>
   `;

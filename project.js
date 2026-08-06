@@ -1,7 +1,6 @@
 const STATUS_LABEL_P = {
   cleared: "CLEARED",
-  "in-progress": "IN PROGRESS",
-  archived: "ARCHIVED"
+  "in-progress": "IN PROGRESS"
 };
 
 function findProject(slug) {
@@ -48,7 +47,9 @@ function renderProjectDetail() {
     </div>
     <div class="project-detail-body">${project.details}</div>
     <div class="project-detail-links">
-      ${project.source ? `<a class="btn btn-primary" href="${project.source}" target="_blank" rel="noopener">VIEW SOURCE &#8599;</a>` : ""}
+      ${project.source
+        ? `<a class="btn btn-primary" href="${project.source}" target="_blank" rel="noopener">VIEW SOURCE &#8599;</a>`
+        : `<span class="btn btn-ghost btn-disabled">PRIVATE REPO</span>`}
       ${(project.links || []).map(l => `<a class="btn btn-ghost" href="${l.url}" target="_blank" rel="noopener">${l.label} &#8599;</a>`).join("")}
     </div>
   `;

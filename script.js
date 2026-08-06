@@ -68,11 +68,11 @@ const STATUS_LABEL = {
   archived: "ARCHIVED"
 };
 
-function renderCard(p, world) {
+function renderCard(p) {
   return `
     <article class="level-card">
       <div class="level-card-head">
-        <span class="level-num">LEVEL ${world}-${p.level}</span>
+        <span class="level-num">LEVEL ${p.level}</span>
         <span class="level-status status-${p.status}">${STATUS_LABEL[p.status]}</span>
       </div>
       <h3 class="level-title">${p.title}</h3>
@@ -88,23 +88,26 @@ function renderCard(p, world) {
   `;
 }
 
-function renderCategories() {
-  const container = document.getElementById("project-categories");
+function worldStatusSummary(cat) {
+  if (cat.comingSoon || !cat.items.length) return "COMING SOON";
+  const n = cat.items.length;
+  return `${n} LEVEL${n === 1 ? "" : "S"}`;
+}
+
+function renderWorldGrid() {
+  const container = document.getElementById("world-grid");
   if (!container || typeof PROJECT_CATEGORIES === "undefined") return;
 
-  container.innerHTML = PROJECT_CATEGORIES.map((cat, i) => {
-    const world = i + 1;
-    return `
-    <div class="category-block">
-      <h3 class="category-title">&#9656; WORLD ${world}: ${cat.name}</h3>
-      ${
-        cat.items.length
-          ? `<div class="level-grid">${cat.items.map(p => renderCard(p, world)).join("")}</div>`
-          : `<p class="category-empty">${cat.comingSoon ? "COMING SOON..." : "MORE ON THE WAY."}</p>`
-      }
-    </div>
-  `;
-  }).join("");
+  container.innerHTML = PROJECT_CATEGORIES.map(cat => `
+    <a class="world-card${cat.items.length ? "" : " world-card-empty"}" href="${cat.items.length ? `world.html?w=${encodeURIComponent(cat.slug)}` : "#"}">
+      <div class="world-icon-frame">
+        <img src="${cat.icon}" alt="" class="world-icon-img">
+      </div>
+      <h3 class="world-card-title">${cat.name}</h3>
+      <p class="world-card-blurb">${cat.blurb}</p>
+      <span class="world-card-meta">${worldStatusSummary(cat)}</span>
+    </a>
+  `).join("");
 }
 
 // ---------- Coin counter (session visit count, just for flavor) ----------
@@ -137,7 +140,7 @@ function initKonami() {
 
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("year").textContent = new Date().getFullYear();
-  renderCategories();
+  renderWorldGrid();
   initCoinCounter();
   initKonami();
   runBootSequence();

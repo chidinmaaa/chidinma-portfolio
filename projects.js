@@ -3,9 +3,15 @@
 // slug is used for the detail page URL: project.html?p=<slug>
 // source is optional — omit it (or leave "") for private repos; the SOURCE link is hidden.
 // links: optional extras (demos, papers, videos) shown on the detail page.
+//
+// Each world (category) also has its own slug for world.html?w=<slug>, a short
+// blurb, and a pixel icon shown on its world-select card.
 const PROJECT_CATEGORIES = [
   {
+    slug: "ai-ml",
     name: "AI & ML",
+    icon: "assets/icons/ai-ml.svg",
+    blurb: "Generative AI products, hackathon builds, and applied machine learning.",
     items: [
       {
         slug: "healthcare-ai-assistant",
@@ -82,7 +88,10 @@ const PROJECT_CATEGORIES = [
     ]
   },
   {
+    slug: "ml-robotics",
     name: "ML & Robotics",
+    icon: "assets/icons/ml-robotics.svg",
+    blurb: "Sample-based control and estimation research — where the MEng dissertation lives on.",
     items: [
       {
         slug: "stylized-trajectory-planning-mppi",
@@ -143,11 +152,17 @@ const PROJECT_CATEGORIES = [
     ]
   },
   {
+    slug: "frontend",
     name: "Front-End Projects",
+    icon: "assets/icons/frontend.svg",
+    blurb: "Web builds, UI experiments, and a certificate or two.",
     items: []
   },
   {
+    slug: "vr",
     name: "VR Projects & Research",
+    icon: "assets/icons/vr.svg",
+    blurb: "Avatars, headsets, and academic research from UCL's VR group.",
     items: [
       {
         slug: "rocketbox",
@@ -210,7 +225,10 @@ const PROJECT_CATEGORIES = [
     ]
   },
   {
+    slug: "video-games",
     name: "Video Games",
+    icon: "assets/icons/games.svg",
+    blurb: "Coming soon.",
     comingSoon: true,
     items: []
   }

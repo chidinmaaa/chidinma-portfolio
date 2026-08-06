@@ -6,10 +6,9 @@ const STATUS_LABEL_P = {
 
 function findProject(slug) {
   if (typeof PROJECT_CATEGORIES === "undefined") return null;
-  for (let i = 0; i < PROJECT_CATEGORIES.length; i++) {
-    const cat = PROJECT_CATEGORIES[i];
+  for (const cat of PROJECT_CATEGORIES) {
     const found = cat.items.find(p => p.slug === slug);
-    if (found) return { project: found, world: i + 1, worldName: cat.name };
+    if (found) return { project: found, worldSlug: cat.slug, worldName: cat.name };
   }
   return null;
 }
@@ -31,11 +30,17 @@ function renderProjectDetail() {
     return;
   }
 
-  const { project, world, worldName } = found;
+  const { project, worldSlug, worldName } = found;
   document.title = `${project.title} // CHIDINMA.EXE`;
 
+  const backLink = document.querySelector(".back-link");
+  if (backLink) {
+    backLink.href = `world.html?w=${encodeURIComponent(worldSlug)}`;
+    backLink.textContent = `‹ BACK TO ${worldName.toUpperCase()}`;
+  }
+
   container.innerHTML = `
-    <p class="level-num">WORLD ${world}: ${worldName} &mdash; LEVEL ${world}-${project.level}</p>
+    <p class="level-num">${worldName} &mdash; LEVEL ${project.level}</p>
     <h1 class="project-title">${project.title}</h1>
     <span class="level-status status-${project.status}">${STATUS_LABEL_P[project.status]}</span>
     <div class="level-tags project-detail-tags">

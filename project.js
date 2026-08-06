@@ -32,6 +32,8 @@ function renderProjectDetail() {
   const { project, worldSlug, worldName } = found;
   document.title = `${project.title} // CHIDINMA.EXE`;
 
+  if (typeof trackLevelVisit === "function") trackLevelVisit(project.slug);
+
   const backLink = document.querySelector(".back-link");
   if (backLink) {
     backLink.href = `world.html?w=${encodeURIComponent(worldSlug)}`;

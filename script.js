@@ -1,24 +1,11 @@
 // ---------- Boot sequence ----------
 
-const BOOT_LINES = [
-  "CHIDINMA-OS v1.0.0",
-  "COPYRIGHT 2026 CHIDINMA SYSTEMS",
-  "",
-  "RUNNING POST... OK",
-  "LOADING PROJECTS.DB... OK",
-  "LOADING STATS.SYS... OK",
-  "CALIBRATING MPPI CONTROLLERS... OK",
-  "",
-  "PRESS ANY KEY TO CONTINUE_"
-];
-
 function runBootSequence() {
   const bootScreen = document.getElementById("boot-screen");
-  const bootText = document.getElementById("boot-text");
   const app = document.getElementById("app");
 
   // Only index.html has the boot screen — no-op elsewhere.
-  if (!bootScreen || !bootText || !app) return;
+  if (!bootScreen || !app) return;
 
   function reveal() {
     bootScreen.classList.add("hidden");
@@ -27,7 +14,7 @@ function runBootSequence() {
     window.removeEventListener("click", reveal);
   }
 
-  // Respect users who'd rather skip the animation, and only play it once per visit.
+  // Respect users who'd rather skip the animation, and only show it once per visit.
   const skip = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
   const alreadyBooted = sessionStorage.getItem("chidinma-booted") === "1";
 
@@ -37,38 +24,9 @@ function runBootSequence() {
   }
   sessionStorage.setItem("chidinma-booted", "1");
 
-  let lineIndex = 0;
-  let charIndex = 0;
-  let display = "";
-
-  function typeNext() {
-    if (lineIndex >= BOOT_LINES.length) {
-      window.addEventListener("keydown", reveal);
-      window.addEventListener("click", reveal);
-      setTimeout(reveal, 4000); // auto-continue if no input
-      return;
-    }
-    const line = BOOT_LINES[lineIndex];
-    if (charIndex <= line.length) {
-      display = BOOT_LINES.slice(0, lineIndex).join("\n") +
-        (lineIndex > 0 ? "\n" : "") + line.slice(0, charIndex);
-      bootText.textContent = display;
-      charIndex++;
-      setTimeout(typeNext, line === "" ? 40 : 18);
-    } else {
-      lineIndex++;
-      charIndex = 0;
-      setTimeout(typeNext, 120);
-    }
-  }
-
-  // Wait for the pixel/mono webfonts to be ready so the loading text doesn't
-  // flash in the browser's fallback font before swapping.
-  if (document.fonts && document.fonts.ready) {
-    document.fonts.ready.then(typeNext);
-  } else {
-    typeNext();
-  }
+  window.addEventListener("keydown", reveal);
+  window.addEventListener("click", reveal);
+  setTimeout(reveal, 6000); // auto-continue if no input
 }
 
 // ---------- Project category rendering ----------
@@ -122,15 +80,55 @@ function renderWorldGrid() {
   `).join("");
 }
 
-// ---------- Coin counter (session visit count, just for flavor) ----------
+// ---------- Coin counter (worlds + levels explored, persisted across visits) ----------
 
-function initCoinCounter() {
+function getVisitedSet(key) {
+  try {
+    return new Set(JSON.parse(localStorage.getItem(key) || "[]"));
+  } catch (e) {
+    return new Set();
+  }
+}
+
+function saveVisitedSet(key, set) {
+  localStorage.setItem(key, JSON.stringify([...set]));
+}
+
+function updateCoinDisplay() {
   const el = document.getElementById("coin-count");
   if (!el) return;
-  const key = "chidinma-site-visits";
-  const count = Number(sessionStorage.getItem(key) || "0") + 1;
-  sessionStorage.setItem(key, String(count));
-  el.textContent = String(count).padStart(2, "0");
+  const worlds = getVisitedSet("chidinma-worlds-visited");
+  const levels = getVisitedSet("chidinma-levels-visited");
+  el.textContent = String(worlds.size + levels.size).padStart(2, "0");
+}
+
+function popCoinCounter() {
+  const el = document.getElementById("coin-count");
+  if (!el) return;
+  el.classList.remove("coin-pop");
+  // Force reflow so the animation can retrigger on rapid navigations.
+  void el.offsetWidth;
+  el.classList.add("coin-pop");
+}
+
+// Call when a world page is visited; only pops for a genuinely new discovery.
+function trackWorldVisit(slug) {
+  const worlds = getVisitedSet("chidinma-worlds-visited");
+  const isNew = !worlds.has(slug);
+  worlds.add(slug);
+  saveVisitedSet("chidinma-worlds-visited", worlds);
+  updateCoinDisplay();
+  if (isNew) popCoinCounter();
+}
+
+// Call when a level (project) page is visited; only pops for a new discovery.
+function trackLevelVisit(slug) {
+  const levels = getVisitedSet("chidinma-levels-visited");
+  const isNew = !levels.has(slug);
+  levels.add(slug);
+  saveVisitedSet("chidinma-levels-visited", levels);
+  updateCoinDisplay();
+  if (isNew) popCoinCounter();
 }
 
 // ---------- Konami code easter egg ----------
@@ -153,7 +151,7 @@ function initKonami() {
 document.addEventListener("DOMContentLoaded", () => {
   document.getElementById("year").textContent = new Date().getFullYear();
   renderWorldGrid();
-  initCoinCounter();
+  updateCoinDisplay();
   initKonami();
   runBootSequence();
 });

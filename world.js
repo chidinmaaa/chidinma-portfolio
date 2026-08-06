@@ -22,6 +22,8 @@ function renderWorldDetail() {
 
   document.title = `${world.name} // CHIDINMA.EXE`;
 
+  if (typeof trackWorldVisit === "function") trackWorldVisit(world.slug);
+
   container.innerHTML = `
     <div class="world-detail-head">
       <div class="world-icon-frame world-icon-frame-large">

@@ -6,7 +6,8 @@
 // links: optional extras (demos, papers, videos) shown on the detail page.
 //
 // Each world (category) also has its own slug for world.html?w=<slug>, a short
-// blurb, and a pixel icon shown on its world-select card.
+// blurb, and a pixel icon shown on its world-select card. Empty/coming-soon
+// worlds are kept at the end of this array so they sort last on World Select.
 const PROJECT_CATEGORIES = [
   {
     slug: "ml-robotics",
@@ -19,7 +20,7 @@ const PROJECT_CATEGORIES = [
         level: "1",
         title: "Stylized Trajectory Planning with MPPI",
         status: "cleared",
-        blurb: "MEng dissertation on Model Predictive Path Integral control — a novel probabilistic method for stylized trajectory planning with obstacle avoidance.",
+        blurb: "MEng dissertation on Model Predictive Path Integral control, awarded a First Class mark — a novel probabilistic method for stylized trajectory planning with obstacle avoidance.",
         details: `
           <p>MEng dissertation in Machine Learning and Robotics, focused on Model Predictive
           Path Integral (MPPI) control. Standard MPPI struggles to reliably enforce
@@ -28,7 +29,7 @@ const PROJECT_CATEGORIES = [
           instead.</p>
           <p>Combines Gaussian Process and Bayesian Neural Network surrogates to model
           probabilistic constraints, improving MPPI's compatibility with safety-critical
-          applications.</p>
+          applications. Awarded a First Class mark.</p>
         `,
         tags: ["Python", "JAX", "GPJAX", "MuJoCo"],
         source: "https://github.com/tombelv/sbmpc/tree/chidinma",
@@ -50,7 +51,9 @@ const PROJECT_CATEGORIES = [
         `,
         tags: ["Python", "JAX", "Research"],
         source: "https://github.com/tombelv/sbmpc/tree/chidinma",
-        links: []
+        links: [
+          { label: "READ THE PAPER", url: "https://link.springer.com/chapter/10.1007/978-3-032-08049-3_8" }
+        ]
       },
       {
         slug: "sample-based-estimation",
@@ -153,15 +156,8 @@ const PROJECT_CATEGORIES = [
     ]
   },
   {
-    slug: "frontend",
-    name: "Front-End Projects",
-    icon: "assets/icons/frontend.svg",
-    blurb: "Web builds, UI experiments, and a certificate or two.",
-    items: []
-  },
-  {
-    slug: "vr",
-    name: "VR Projects & Research",
+    slug: "research",
+    name: "Research",
     icon: "assets/icons/vr.svg",
     blurb: "Avatars, headsets, and academic research from UCL's VR group.",
     items: [
@@ -182,7 +178,7 @@ const PROJECT_CATEGORIES = [
           IEEE AIVR.</p>
         `,
         tags: ["C#", "Unity", "Ubiq"],
-        source: "",
+        source: "https://github.com/chidinmaaa/expressive_avatar2",
         links: [
           { label: "IEEE AIVR PRESENTATION", url: "https://www.youtube.com/watch?v=7CEYObKjsEI" },
           { label: "RESEARCH PAPER", url: "https://www.microsoft.com/en-us/research/publication/movebox-democratizing-mocap-for-the-microsoft-rocketbox-avatar-library/" }
@@ -226,10 +222,10 @@ const PROJECT_CATEGORIES = [
     ]
   },
   {
-    slug: "guitar",
-    name: "Guitar CLI",
-    icon: "assets/icons/guitar.svg",
-    blurb: "A command-line tool for tracking guitar practice, one riff at a time.",
+    slug: "rainy-day",
+    name: "Rainy Day",
+    icon: "assets/icons/rainy-day.svg",
+    blurb: "Side projects and hobby experiments, for whenever the mood strikes.",
     items: [
       {
         slug: "guitar-practice-cli",
@@ -250,6 +246,13 @@ const PROJECT_CATEGORIES = [
         links: []
       }
     ]
+  },
+  {
+    slug: "frontend",
+    name: "Front-End Projects",
+    icon: "assets/icons/frontend.svg",
+    blurb: "Web builds, UI experiments, and a certificate or two.",
+    items: []
   },
   {
     slug: "video-games",
